@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f7f7f7;
+}
+#loginForm {
+  background: #fff;
+  width: 450px;
+  border-radius: 16px;
+  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+}
+.form {
+  padding: 25px 30px;
+  background-color: dodgerblue;
+  color: #f7f7f7;
+  border-radius: 16px;
+}
+
+.form h2 {
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+  color: #f7f7f7;
+}
+
+.form h3 {
+  color: #f7f7f7;
+}
+
+.form .links {
+  font-size: 1.2em;
+}
+
+.form form .field {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.form form .field label {
+  margin-bottom: 2px;
+  font-size: 1.5em;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+}
+
+.form form .avatar label {
+  margin-bottom: 2px;
+  font-size: 1.5em;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+}
+
+.form form .input input {
+  height: 40px;
+  width: 100%;
+  font-size: 18px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+}
+.form form .loginBtn {
+  color: dodgerblue;
+  background-color: #f7f7f7;
+  padding: 0.1em 5em;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-bottom: 0.5em;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+}
+
+.form form .loginBtn i {
+  font-size: 14px;
+}
+
+.form .logoutBtn {
+  color: dodgerblue;
+  background-color: #f7f7f7;
+  padding: 0.1em 5em;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-bottom: 0.5em;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+}
+
+.form .logoutBtn i {
+  font-size: 14px;
+}
+
+.loginForm .form .loginLink {
+  font-size: 1.8em;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+}
+.loginForm .form .loginLink a {
+  color: #f7f7f7;
+}
+
+.form form .field i {
+  position: absolute;
+  right: 15px;
+  color: #ccc;
+  top: 70%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.4em;
+  margin-top: 0.2em;
+}
+.form form .field i {
+  color: rgb(114, 112, 112);
+}
+#loginForm .form .logoutBtn button {
+  color: dodgerblue;
+  background-color: #f7f7f7;
+  padding: 0.5em 5em;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.form .socialSignin Button {
+  margin-right: 1em;
+  margin-left: 1em;
+  padding: 0.2em 1em;
+  background-color: #302929;
+}
+.form form .passwordValid {
+  color: gold;
+  font-size: 0.8em;
+}

@@ -1,0 +1,63 @@
+#userTop {
+  margin-top: 0.3em;
+}
+
+.message .userList .photoTime {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+}
+
+.message .userList .photoTime .userListImg {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.message .userList .photoTime .nameText .listName {
+  background-color: dodgerblue;
+  color: #f6f6f6;
+  margin-left: 0.5em;
+  margin-bottom: 0.1em;
+  display: flex;
+  align-items: flex-start;
+  font-size: 1.1em;
+}
+
+.message .userList .photoTime .nameText {
+  display: flex;
+  flex-direction: column;
+}
+
+.message .userList .photoTime .nameText .listText {
+  position: relative;
+  text-align: start;
+  color: #f6f6f6;
+  background-color: dodgerblue;
+  padding: 0.1em;
+  margin-left: 0.5em;
+  font-size: 0.9em;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+}
+
+.photoTime span {
+  color: gray;
+  font-size: 0.5em;
+  width: 6.35em;
+}
+
+.sent p {
+  color: rgb(8, 0, 0);
+  background: #f9fafa;
+  align-self: flex-end;
+  margin-right: 0.5em;
+  margin: 0.5em 0.5em 35px 6em;
+}
+.received p {
+  background: #000007;
+  color: rgb(247, 245, 245);
+  border-radius: 8px 8px 8px 0px;
+  margin: 0em 6em 35px 0em;
+}

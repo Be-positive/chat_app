@@ -1,0 +1,25 @@
+div h3 {
+  color: #f7f7f7;
+  margin-right: 5.5em;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+}
+
+div .searchInput {
+  padding: 0.1em;
+  border-radius: 6px;
+  font-size: 1.4em;
+  background-color: #f7f7f7;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+  outline: none;
+  border: none;
+}
+
+div .messages {
+  padding: 0px;
+  height: 70vh;
+  overflow-y: scroll;
+  flex-direction: column;
+  margin-left: 0em;
+  margin-bottom: 2em;
+  color: #f6f6f6;
+}

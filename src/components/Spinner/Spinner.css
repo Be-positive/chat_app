@@ -1,0 +1,50 @@
+.spinner {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.spinner .circle {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #000000;
+  color: #ffffff;
+  border: 10px solid #242a2e;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 145px;
+}
+
+.spinner .circle > label {
+  font-size: 30px;
+}
+
+.spinner .circle::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 150px;
+  height: 150px;
+  border: 10px solid transparent;
+  border-top: 10px solid dodgerblue;
+  border-right: 10px solid dodgerblue;
+  border-radius: 50%;
+  animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

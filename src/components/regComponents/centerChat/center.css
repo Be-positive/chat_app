@@ -1,0 +1,76 @@
+.messages {
+  padding: 0px;
+  height: 70vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: #f6f6f6;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+
+.messagesForm {
+  height: 8vh;
+  position: relative;
+  font-size: 1.5rem;
+  background-color: rgb(224, 222, 222);
+  margin-left: -1.3em;
+  width: 20em;
+}
+
+.messagesInput {
+  margin-top: 0.5em;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  background: rgb(224, 222, 222);
+  color: #000000;
+  outline: none;
+  border: none;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+}
+
+.messagesButton {
+  border: none;
+  color: rgb(224, 222, 222);
+  padding: 3px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.messagesButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.message {
+  display: flex;
+  align-items: center;
+}
+.sent {
+  flex-direction: row-reverse;
+}
+
+.sent p {
+  color: white;
+  background: #0b93f6;
+  align-self: flex-end;
+  margin-right: 0.5em;
+  margin: 0.5em 0.5em 35px 6em;
+}
+.received p {
+  background: #e5e5ea;
+  color: black;
+  border-radius: 8px 8px 8px 0px;
+  margin: 0em 6em 35px 0em;
+}
