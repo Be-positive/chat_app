@@ -81,7 +81,7 @@ const Signup = () => {
   return (
     <section id="loginForm">
       <center className="form login">
-        <h2>Welcome to WEHELP</h2>
+        <h2>Welcome to Helpsy</h2>
         {error && (
           <Alert style={{ fontSize: "1.2em" }} color="danger">
             {error}
