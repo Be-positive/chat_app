@@ -2,20 +2,33 @@ import React from "react";
 import { auth } from "../../../firebase/config";
 import _ from 'lodash';
 
-//style and image
+// take data from firestore
+import { firestore } from '../../../firebase/config';
+import { doc, setDoc } from "firebase/firestore";
+
 import "./userListStyle.css"
-// import Image1 from '../../images/images.png'
 
 function UsersList(props) {
-    
-    const { uid, displayName, photoURL, text } = props.user;   
-    
-    // const { text } = props.message
   
-    function chatStart() {
-        console.log(displayName)        
-    }    
+    const { id, uid, displayName, photoURL, text } = props.user; 
     
+    const chatStart = () => {  
+      
+      const docRef = doc(firestore, "rooms", "NjDxH6iSvaIWmZfLbYsN");
+      const data = {
+        roomNumber: auth.currentUser.uid.slice(0, 5) + id.slice(0, 5)
+      };
+
+      setDoc(docRef, data)
+       .then(() => {
+        // console.log(docRef)
+           console.log("Rooms are changed successfully");
+       })
+       .catch(error => {
+           console.log(error);
+       })
+     }; 
+ 
     const textChat = () => {
         const str = text;
         const truncate = _.truncate 
@@ -35,9 +48,9 @@ function UsersList(props) {
     
     const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
     
-    return (<>
-    <div id="userTop" onClick={chatStart} className={`message ${messageClass}`}>
-        <div className="userList">
+    return (<>    
+      <div onClick={chatStart} id="userTop" className={`message ${messageClass}`}> 
+        <div className="userList" >
             <div className="photoTime">
                 {(photoURL || displayName) &&
                   <img className="userListImg" src={photoURL} />
@@ -45,10 +58,11 @@ function UsersList(props) {
                 <div className="nameText">
                     {displayName && <h6 className="listName">{displayName}</h6>}
                     {text && <h6 className="listText">{textChat()}</h6>}                    
-                </div>               
+                </div>                               
             </div>
         </div>
-    </div>
+      </div>
+    
   </>)
 }
 
