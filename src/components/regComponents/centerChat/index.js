@@ -2,22 +2,30 @@ import React, {useRef, useState} from 'react'
 import { auth } from '../../../firebase/config';
 import ChatMessage from '../chatMessage/ChatMessage';
 
+// connection with Firebase db
 import { firestore } from '../../../firebase/config';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import 'firebase/compat/firestore';
 import 'firebase/compat/analytics';
 
-import { useCollectionData } from 'react-firebase-hooks/firestore';
-
+// style
 import "./center.css"
 
 function CenterChat() {
+
+  const usersRef = firestore.collection('rooms');
+  const [rooms] = useCollectionData(usersRef, { idField: 'id' }); 
+
+  if(rooms){
+    var room = rooms[0].roomNumber
+    var room2 = room.slice(5,10) + room.slice(0, 5)
+  }
   
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
-  //let's take user collection instead and when add -> add to user collection like message
   
   const query = messagesRef
   .orderBy('createdAt')
@@ -25,7 +33,6 @@ function CenterChat() {
   // quantity of max messages (if > 50 u can't see this messages)
 
   const [messages] = useCollectionData(query, { idField: 'id' });
-
   const [formValue, setFormValue] = useState('');
 
   const sendMessage = async (e) => {
@@ -37,6 +44,7 @@ function CenterChat() {
       uid,
       photoURL,
       displayName,
+      room
     })
     setFormValue('');
     dummy.current.scrollIntoView({ behavior: 'smooth' });
@@ -49,12 +57,13 @@ function CenterChat() {
 
   return (<>
     <main className="messages">
-
-      {messages && messages.map((msg) => <ChatMessage 
+      
+      {messages && messages.map(function(msg) { if( msg.room === room || msg.room === room2){ return <ChatMessage 
       key={msg.id} 
       message={msg} 
-      handleDelete={handleDelete} 
-      />)}
+      handleDelete={handleDelete}      
+      />}})}      
+      {/* creating a props of ChatMessage, which using inside ChatMessage component */}
 
       <span ref={dummy}></span>
 
@@ -64,10 +73,13 @@ function CenterChat() {
 
       <input size="30" className="messagesInput" value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Type your message here..." />
 
-      <button className="messagesButton" type="submit" disabled={!formValue}>🕊️</button>
+      <button className="messagesButton" type="submit" disabled={!formValue}>🕊️</button>     
+      
 
     </form>
   </>)
 }
 
 export default CenterChat
+
+
