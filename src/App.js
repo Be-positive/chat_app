@@ -14,8 +14,8 @@ import Reset from "./components/Reset";
 import UpdatePassword from "./components/UpdatePassword";
 
 const App = () => {
-  const history = useHistory();
 
+  const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,6 +27,7 @@ const App = () => {
       <Router history={history}>
       <AuthProvider>
         <Switch>
+          
           <PrivateRoute exact path="/" component={DashBoard} />
 
           <PrivateRoute path="/update" component={UpdatePassword} />
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/login" component={Login} />
 
           <Route path="/recovery" component={Reset} />
+
         </Switch>
       </AuthProvider>
       </Router>

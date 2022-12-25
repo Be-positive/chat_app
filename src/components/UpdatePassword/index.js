@@ -68,7 +68,8 @@ const UpdatePassword = () => {
           </Alert>
         )}
         <form onSubmit={formik.handleSubmit}>
-          <h3>email: {currentUser.email}</h3>
+          
+          <h3>email:{currentUser.email}</h3>
 
           <div className="field input">
             <InputGroup>

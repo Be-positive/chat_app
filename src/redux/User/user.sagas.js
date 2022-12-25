@@ -54,6 +54,7 @@ export function AuthProvider({ children }) {
 
 
   useEffect(() => {
+    
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       setCurrentUser(user)
       setLoading(false)      
@@ -69,6 +70,8 @@ export function AuthProvider({ children }) {
       </AuthContext.Provider>
   )
 }
+
+
 
 export function* emailSignIn({ payload: { email, password } }) {
   try {

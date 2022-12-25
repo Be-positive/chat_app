@@ -162,16 +162,13 @@ const Signup = () => {
           </div>
           <div className="avatar" >
             <InputGroup>
-              <label htmlFor="photoURL">Avatar</label>
-              <input
-                //maybe type "file" instead "image"?
-                type="file"
+              <label htmlFor="photoURL">Avatar URL: </label>
+              <input              
+                type="url"
+                // type URL because it's easier to save in firestore db, with "file" u can't do this
                 name="photoURL"
-                //maybe "src" instead "value"?
-                accept="image/jpeg,image/png,image/gif"
-                // value={formik.values.photoURL}
                 src={formik.values.photoURL}
-                placeholder="your avatar"
+                placeholder="http//"
                 onChange={formik.handleChange}                
                 required
               />

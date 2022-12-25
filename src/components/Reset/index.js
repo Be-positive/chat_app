@@ -21,6 +21,7 @@ const mapState = ({ user }) => ({
 });
 
 const EmailPassword = () => {
+  
   const dispatch = useDispatch();
   const history = useHistory();
   const { resetPasswordSuccess, userErr } = useSelector(mapState);

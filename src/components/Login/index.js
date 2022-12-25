@@ -43,6 +43,7 @@ const SignIn = () => {
         setError("");
         const email = formik.values.email;
         const password = formik.values.password;
+        
         dispatch(emailSignInStart({ email, password }));
         history.push("/")
       } catch {
