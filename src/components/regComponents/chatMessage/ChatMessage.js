@@ -6,9 +6,26 @@ import { formatRelative } from 'date-fns';
 import "./chatMessage.css"
 import Image1 from '../../images/images.png'
 
+// connection with Firebase db
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { firestore } from '../../../firebase/config';
+
 function ChatMessage(props, { handleDelete} ) {
 
-  const { text, uid, createdAt, photoURL, id} = props.message; 
+  const { text, uid, createdAt} = props.message; 
+  
+  const usersRef = firestore.collection('users');  
+  const [users] = useCollectionData(usersRef, { idField: 'id' });
+
+  // now IT's working!!!
+  if(users){    
+    for (let i = 0; i < users.length; i++) {
+      if(users[i].id === uid){
+        // var userName = users[i].displayName
+        var userImg  = users[i].photoURL   
+      }      
+    }
+  }
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
@@ -33,9 +50,9 @@ function ChatMessage(props, { handleDelete} ) {
     <div className={`message ${messageClass}`}>
       <div>
         <div className="photoTime" onClick={toggleCard} >
-          {photoURL ?
+          {users ?
                     <img className="chatMessImg" style={{borderRadius: "50%"}}
-                      src={photoURL} alt="Admin"
+                      src={userImg} alt="Admin"
                       width="130" height="130" />
                     : <img className="chatMessImg" style={{borderRadius: "50%"}}
                       src={Image1} alt="Admin"
@@ -55,7 +72,7 @@ function ChatMessage(props, { handleDelete} ) {
             className="actions"
           >
             {/* handleDelte is not function! Needs to do different! */}
-            <button onClick={() => handleDelete(createdAt, id)}>Delete</button>
+            <button onClick={() => handleDelete(createdAt, uid)}>Delete</button>
           </div>
         </div>
       </div>
