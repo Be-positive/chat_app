@@ -12,6 +12,8 @@ div .searchInput {
   font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
   outline: none;
   border: none;
+  margin-bottom: 0.5em;
+  width: 12em;
 }
 
 div .messages {
@@ -22,4 +24,27 @@ div .messages {
   margin-left: 0em;
   margin-bottom: 2em;
   color: #f6f6f6;
+}
+
+div .message {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.sent {
+  flex-direction: row-reverse;
+}
+
+.sent p {
+  color: white;
+  background: #0b93f6;
+  align-self: flex-end;
+  margin-right: 0.5em;
+  margin: 0.5em 0.5em 35px 6em;
+}
+.received p {
+  background: #e5e5ea;
+  color: black;
+  border-radius: 8px 8px 8px 0px;
+  margin: 0em 6em 35px 0em;
 }

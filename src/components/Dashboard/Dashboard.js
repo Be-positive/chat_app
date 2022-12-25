@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 //components
-import SearchLayout from "../regComponents/searchLayout";
+import SearchLayout2 from "../regComponents/searchLayout2";
 import CenterChat from "../regComponents/centerChat";
 import RightProfile from "../regComponents/rightProfile";
 import Spinner from '../Spinner/Spinner'
@@ -42,7 +42,7 @@ const DashBoard = () => {
       <center className="mainLand">
 
         <div className="leftSide">
-          <SearchLayout />
+          <SearchLayout2 />
         </div>
 
         <div className="center">
