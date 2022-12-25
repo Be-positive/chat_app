@@ -75,7 +75,6 @@ function CenterChat() {
 
       <button className="messagesButton" type="submit" disabled={!formValue}>🕊️</button>     
       
-
     </form>
   </>)
 }
