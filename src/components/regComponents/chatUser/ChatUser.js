@@ -7,7 +7,6 @@ import Image1 from '../../images/images.png';
 
 function ChatUser() {
 
-  // const { photoURL, email, displayName} = props.users; 
   const { photoURL, displayName, email } = auth.currentUser;
 
   const usersClass = email === auth.currentUser.email ? 'sent' : 'received';
@@ -27,8 +26,6 @@ function ChatUser() {
             </div>
         </div>
       </div>
-   
-
 }
 
 export default ChatUser;
