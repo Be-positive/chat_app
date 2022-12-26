@@ -34,6 +34,11 @@ const DashBoard = () => {
       setLoading(false);
     }, 3000);
   }, []);
+
+  function chatProfile(){
+    let chatProfile = document.getElementById('chatProfile')
+    chatProfile.style.display = "flex";
+  }
   
   return (
     
@@ -41,11 +46,11 @@ const DashBoard = () => {
       {loading && <Spinner />}      
       <center className="mainLand">
 
-        <div className="leftSide">
+        <div className="leftSide" onClick={chatProfile} >
           <SearchLayout />
         </div>
 
-        <div className="center">
+        <div className="center" id="chatProfile" style={{display: "none"}}>
           <div className="profileInfo">
             <Button  id='profileBtn' onClick={showProfile}  className="profileBtn">Profile <i className="fas fa-user"></i> </Button>
             <div id='profileAdmin' style={{transform: showProfileInfo ? "translate3d(0vw, 0, 0)" : "translate3d(200vw, 0, 0)"}}>
@@ -53,10 +58,10 @@ const DashBoard = () => {
               <RightProfile /> 
             </div>
           </div>            
-          <CenterChat  /> 
+          <CenterChat/> 
         </div>
 
-        <div className="rightSide">
+        <div className="rightSide" >
           <RightProfile  className="rightProfile" />          
         </div>
         
