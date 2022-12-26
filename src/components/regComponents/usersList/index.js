@@ -56,7 +56,7 @@ function UsersList(props) {
                   <img className="userListImg" src={photoURL} />
                 }
                 <div className="nameText">
-                    {displayName && <h6 className="listName">{displayName}</h6>}
+                    {displayName && <h6 className="listName" id="listName">{displayName}</h6>}
                     {text && <h6 className="listText">{textChat()}</h6>}                    
                 </div>                               
             </div>
