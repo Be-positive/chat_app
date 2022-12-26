@@ -10,6 +10,13 @@
   border-radius: 8px 8px 0px 8px;
 }
 
+.chatName{
+  text-align: center;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 0.8em;
+} 
+
 .chatMessImg {
   width: 40px;
   height: 40px;

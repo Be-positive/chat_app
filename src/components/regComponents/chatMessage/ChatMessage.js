@@ -21,11 +21,16 @@ function ChatMessage(props, { handleDelete} ) {
   if(users){    
     for (let i = 0; i < users.length; i++) {
       if(users[i].id === uid){
-        // var userName = users[i].displayName
+        if(!(auth.currentUser.displayName === users[i].displayName)){
+          var userName = users[i].displayName
+        }
+        
         var userImg  = users[i].photoURL   
       }      
     }
   }
+
+
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
@@ -57,6 +62,7 @@ function ChatMessage(props, { handleDelete} ) {
                     : <img className="chatMessImg" style={{borderRadius: "50%"}}
                       src={Image1} alt="Admin"
                       width="130" height="130" />}
+                      {auth.currentUser.uid !== uid ? <h6  className="chatName">{userName}</h6> : null}                    
             {createdAt?.seconds ? (
                   <span className="text-gray-500 text-xs">
                     {formatDate(new Date(createdAt.seconds * 1000))}
@@ -77,6 +83,8 @@ function ChatMessage(props, { handleDelete} ) {
         </div>
       </div>
       <p className="chatMesPar">{text}</p>
+        
+      
     </div>
   </>)
 }
