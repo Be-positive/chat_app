@@ -22,12 +22,13 @@ function UsersList(props) {
       setDoc(docRef, data)
        .then(() => {
         // console.log(docRef)
-           console.log("Rooms are changed successfully");
+          console.log("Rooms are changed successfully");
        })
        .catch(error => {
-           console.log(error);
+          console.log(error);
        })
      }; 
+     
  
     const textChat = () => {
         const str = text;
