@@ -33,15 +33,18 @@ function SearchLayout () {
   //taking users from firestoreDB and order it by creating Date 
   const usersRef = firestore.collection('users');
   const query = usersRef.orderBy('createdDate')
-  const [users] = useCollectionData(query, { idField: 'id' });  
+  const [users] = useCollectionData(query, { idField: 'id' }); 
+   
+  // WHY IT'S WORKING ONLY WITH 1 copy of this component? when clicking only in main 'searchLayout' show up searching part and in another not...
+  var searchInput = document.getElementById('searchInput');
 
   return (
     <div>      
       <h3>Helpsy</h3>      
       
-      <input autoComplete='off' onChange={(e) => setSearchTerm(e.target.value)} type="search" className="searchInput" placeholder = "Search Here..." /> 
-
-      <main className="messages">
+      <input style={{display: 'none'}} autoComplete='off' id="searchInput" onChange={(e) => setSearchTerm(e.target.value)} type="search" className="searchInput" placeholder = "Search Here..." /> 
+      
+        <main className="users" onClick={() => {searchInput.style.display= "inline";}}>
         {users && users.map(function(usr){
           if(usr.displayName.indexOf(searchTerm) > -1){          
           return <UsersList key={usr != null && usr.id} user={usr != null && usr.id != currentUser.uid  && usr} />
