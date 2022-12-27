@@ -30,8 +30,6 @@ function ChatMessage(props, { handleDelete} ) {
     }
   }
 
-
-
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   const [showActionsButtons, setShowActionsButtons] = useState(false);
