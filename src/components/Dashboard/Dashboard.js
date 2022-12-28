@@ -59,6 +59,7 @@ const DashBoard = () => {
     var chatProfile = document.getElementById('chatProfile')
     chatProfile.style.display = "flex"; 
     
+    //not working "inner width" the same in mobile and pc, it's not reading in mobile version anyway 
     if(window.innerWidth <= 820){      
       leftSide.style.display = "none";
     }     
@@ -89,7 +90,7 @@ const DashBoard = () => {
             </div>
             
           </div>    
-          <div onClick={() => {setShowUsersInfo(false); setShowProfileInfo(false)}}>
+          <div id="centerChat" onClick={() => {setShowUsersInfo(false); setShowProfileInfo(false)}}>
             <CenterChat/>            
           </div>                   
         </div>
