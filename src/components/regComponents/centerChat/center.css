@@ -1,9 +1,9 @@
 .messages {
-  padding: 0px;
-  height: 70vh;
+  padding: 0px 5px;
+  height: 80vh;
   overflow-y: scroll;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
 }
 
 .messages::-webkit-scrollbar {
@@ -23,7 +23,6 @@
   position: relative;
   font-size: 1.5rem;
   background-color: rgb(224, 222, 222);
-  margin-left: -1.3em;
   width: 20em;
 }
 
@@ -73,6 +72,12 @@
   color: black;
   border-radius: 8px 8px 8px 0px;
   margin: 0em 6em 35px 0em;
+}
+
+@media only screen and (max-width: 1100px) {
+  .messagesForm {
+    width: 25em;
+  }
 }
 
 @media only screen and (max-width: 820px) {
