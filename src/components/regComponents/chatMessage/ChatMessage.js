@@ -9,31 +9,33 @@ import Image1 from '../../images/images.png'
 // connection with Firebase db
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { firestore } from '../../../firebase/config';
+import { doc, deleteDoc } from "firebase/firestore";
 
-function ChatMessage(props, { handleDelete} ) {
+function ChatMessage(props) {
 
   const { text, uid, createdAt} = props.message; 
   
   const usersRef = firestore.collection('users');  
   const [users] = useCollectionData(usersRef, { idField: 'id' });
+  
+  
 
-  // now IT's working!!!
+  // displaying message's name / photo
   if(users){    
     for (let i = 0; i < users.length; i++) {
       if(users[i].id === uid){
         if(!(auth.currentUser.displayName === users[i].displayName)){
           var userName = users[i].displayName
         }
-        
         var userImg  = users[i].photoURL   
       }      
     }
   }
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
-
   const [showActionsButtons, setShowActionsButtons] = useState(false);
 
+  // show/hide delete btn for messages 
   const toggleCard = () => {
     setShowActionsButtons(!showActionsButtons);
   };
@@ -49,10 +51,19 @@ function ChatMessage(props, { handleDelete} ) {
     return formattedDate;
   };  
 
+// delete messages from firestore
+function handleDelete(){
+    const docRef = doc(firestore, "messages", props.message.id);
+    deleteDoc(docRef)    
+    .catch(error => {
+        console.log(error);
+    })
+}
+
   return (<>
-    <div className={`message ${messageClass}`}>
+    <div className={`message ${messageClass}`} onClick={toggleCard}>
       <div>
-        <div className="photoTime" onClick={toggleCard} >
+        <div className="photoTime"  >
           {users ?
                     <img className="chatMessImg" style={{borderRadius: "50%"}}
                       src={userImg} alt="Admin"
@@ -75,14 +86,11 @@ function ChatMessage(props, { handleDelete} ) {
             }}
             className="actions"
           >
-            {/* handleDelte is not function! Needs to do different! */}
-            <button onClick={() => handleDelete(createdAt, uid)}>Delete</button>
+            <button id="msgDelete" onClick={handleDelete}>Delete</button>
           </div>
         </div>
       </div>
       <p className="chatMesPar">{text}</p>
-        
-      
     </div>
   </>)
 }

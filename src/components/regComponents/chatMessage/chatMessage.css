@@ -37,3 +37,11 @@
   font-size: 0.5em;
   width: 6.35em;
 }
+
+#msgDelete {
+  background-color: white;
+  color: red;
+  border-radius: 0.5em;
+  font-size: small;
+  padding: 0.1em;
+}
