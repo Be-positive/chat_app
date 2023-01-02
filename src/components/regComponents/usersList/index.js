@@ -12,24 +12,22 @@ function UsersList(props) {
   
     const { id, uid, displayName, photoURL, text } = props.user; 
     
+    // changing chatting users
     const chatStart = () => {  
       
       const docRef = doc(firestore, "rooms", "NjDxH6iSvaIWmZfLbYsN");
       const data = {
         roomNumber: auth.currentUser.uid.slice(0, 5) + id.slice(0, 5)
       };
-
       setDoc(docRef, data)
-       .then(() => {
-        // console.log(docRef)
-          console.log("Rooms are changed successfully");
-       })
+      //  .then(() => {
+      //     console.log("Rooms are changed successfully");
+      //  })
        .catch(error => {
           console.log(error);
        })
      }; 
      
- 
     const textChat = () => {
         const str = text;
         const truncate = _.truncate 
